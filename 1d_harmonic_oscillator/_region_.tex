@@ -1,0 +1,30 @@
+\message{ !name(1d_harmonic_error.tex)}\documentclass[border = 60pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{scalefnt}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{datavisualization, positioning,calc,arrows,decorations.pathmorphing,intersections,shapes,snakes}
+\usepackage{metalogo}
+% \usepackage{dtklogos}
+\begin{document}
+
+\message{ !name(1d_harmonic_error.tex) !offset(-3) }
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \datavisualization [
+        school book axes,
+        visualize as smooth line
+        ]
+        data [read from file= "kaka.csv"];
+    \end{tikzpicture}
+\end{figure}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+\message{ !name(1d_harmonic_error.tex) !offset(-30) }

@@ -1,0 +1,106 @@
+\begin{frame}
+  \frametitle{Terminologies and Properties of the Ring-Polymer}
+
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      [
+      spring/.style={
+        line width=0.5pt, decorate,
+        decoration={
+          coil, amplitude=3.0, 
+          segment length=2.5
+        }}, 
+      potential/.style={
+        line width=0.5pt, decorate,
+        color=green!50!black,
+        decoration={
+          snake, amplitude=2.0, 
+          segment length=100
+      }}
+      ]
+      \def\pointsA{
+            1.0000/   0.0000,
+            0.5136/   0.8896,
+           -0.5112/   0.8853,
+           -1.0629/   0.0000,
+           -0.6401/  -1.1086,
+            0.5326/  -0.9226
+      }
+      % First, draw the springs for the first RP
+      \draw[spring, color=red] (  1.0000,   0.0000) 
+                            -- (  0.5136,   0.8896) 
+                            -- ( -0.5112,   0.8853) 
+                            -- ( -1.0629,   0.0000) 
+                            -- ( -0.6401,  -1.1086) 
+                            -- (  0.5326,  -0.9226) 
+                            -- cycle;
+      \foreach \x/\y in \pointsA {
+        \coordinate (A) at (\x, \y);
+        \shade[shading=ball, ball color=blue!50!cyan] (A) circle (8pt);
+      }
+
+      \draw[black, line width=1pt, dashed] (0.0, 0.0) circle (1.1);
+      \draw[black, line width=1pt] (0.0, 0.0) circle (0.05);
+      \draw[black, line width=1pt, ->, >=stealth] (30:0.05) -- node[above,
+      sloped, pos=0.3] {$r_G$} (30:1.1);
+
+      % \node[] at (0.1, -0.4) {$r_G$};
+
+      \node[] at (90:2.5) {
+        \begin{minipage}{0.95\textwidth}
+          $\bullet\kern1ex$\textbf{Radius of Gyration} -- the spread in imaginary
+          time. For a free particle the root mean square radius of gyration is:
+          \begin{equation*}
+            \braket{r_G^2(T)}^{1/2} = {\Lambda(T)\over\sqrt{8\pi}}
+            \qquad \qquad
+            \Lambda(T) = {h\over\sqrt{2\pi m k_B T}}
+          \end{equation*}
+        \end{minipage}
+      };
+
+      \node[align=left] at (0:4.0) {
+        \begin{minipage}{0.3\textwidth}
+          $\bullet\kern1ex$\textbf{Centroid} -- the center of the Ring-Polymer.
+          \begin{equation*}
+            x_c = {1\over P}\sum_{i=1}^P x_i
+          \end{equation*}
+        \end{minipage}
+      };
+
+      \node[align=left] at (180:4.0) {
+        \begin{minipage}{0.3\textwidth}
+          $\bullet\kern1ex$\textbf{Bead to bead distance} -- For a free particle
+          the average is:
+          \begin{equation*}
+            \sqrt{\beta\hbar^2\over P m}
+          \end{equation*}
+          Note the distance decreases as $P$ increases.
+        \end{minipage}
+      };
+
+      \node[align=center] at (270:2.5) {
+        \begin{minipage}{0.8\textwidth}
+          \begin{center}
+            $\bullet\kern1ex$\textbf{Bead spring constants}\thinspace\footnotemark\thinspace -- determined by
+            $m\omega_P^2$
+            \begin{equation*}
+              \omega_P = {1\over\beta_P\hbar} = Pk_B T / \hbar
+            \end{equation*}
+          \end{center}
+        \end{minipage}
+      };
+    \end{tikzpicture}
+  \end{figure}
+  \footnotetext{
+    In some textbooks, $\omega_P = \sqrt{P} k_B T / \hbar$ if the Hamiltonian is
+    $H_P(\mathbf{x}, \mathbf{p})/P$
+  }
+  % \vspace{12pt}
+  \begin{center}
+    \fbox{
+      The overall object is referred to as an \emph{Imaginary Time Path}
+      or a \emph{Ring-Polymer}.
+    }
+  \end{center}
+\end{frame}

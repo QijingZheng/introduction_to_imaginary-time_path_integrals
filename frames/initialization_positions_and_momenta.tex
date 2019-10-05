@@ -1,0 +1,68 @@
+\begin{frame}
+  \frametitle{Initializing PIMD --- Positions and Momenta}
+  \begin{equation*}
+    H_P(\{\mathbf{x}\}, \{\mathbf{p}\}) =
+    \sum_{I=1}^N \sum_{i=1}^P
+    \left[
+      \frac{(\mathbf{p}^i_I)^2}{2\tilde{m}_I^i}
+      +
+      \frac{1}{2} m_I \omega_P^2 (\mathbf{x}^{i+1}_I - \mathbf{x}^i_I)^2
+    \right]
+      +
+      \sum_{i=1}^P 
+      \hat{V}(\mathbf{x}_1^i,\ldots,\mathbf{x}_N^i)
+  \end{equation*}
+  \begin{itemize}
+    \item To initialize PIMD requires specification of $3NP$ positions and $3NP$ momenta.
+  \end{itemize}
+
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\centering \textsc{Momenta}}
+        \begin{itemize}
+        \item We inserted $P$ Gaussians when introducing momenta
+          \begin{equation*}
+            \left({\beta\over2\pi {\tilde{m}}}\right)^{1/2}\int\dt{p}\,e^{-\beta p^2/2\tilde{m}} 
+          \end{equation*}
+
+        \item We can then sample the momentum of each bead from a Gaussian
+          distribution with
+          \begin{align*}
+              \bar{p} &= 0\cr
+              \sigma_p &= \sqrt{{\tilde{m}\over\beta_P}} =
+                                  \sqrt{\tilde{m}k_B PT}
+          \end{align*}
+        \end{itemize}
+      \end{block}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \setbeamercolor{block title}{bg=blue!30,fg=black}
+      \begin{block}{\centering \textsc{Positions}}
+        \begin{enumerate}
+        \item Start all beads at the same positions and equilibrate.
+          \begin{itemize}
+            \item RP will expand under NVE, $T$ will drop.
+            \item Strong Thermostatting is need!
+          \end{itemize}
+
+        \item Sample from the \emph{free} ring-polymer distribution.
+          \begin{itemize}
+          \item The only potential is the harmonic springs.
+          \item In normal mode coordinates
+            \begin{equation*}
+              \sum_{j=1}^P \frac{1}{2}m\Omega_j^2\tilde{x}_j^2
+              \quad\Rightarrow\quad
+              \int\dt{\tilde{x}_j}\, e^{-\beta_P\left({1\over2}m\Omega_j^2\tilde{x}_j^2\right)}
+            \end{equation*}
+            
+          \item $\bar{\tilde{x}}_j = 0$ and $\sigma_{\tilde{x}_j} =
+            \sqrt{1\over\beta_P m\Omega_j^2}$.
+          \item In practice, RP slightly too extended.
+          \end{itemize}
+          
+        \end{enumerate}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}

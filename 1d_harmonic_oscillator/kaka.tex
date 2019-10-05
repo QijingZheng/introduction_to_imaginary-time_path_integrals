@@ -1,0 +1,38 @@
+\documentclass[border = 60pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{scalefnt}
+% \usepackage{tikz}
+% \usetikzlibrary{mindmap}
+% \usetikzlibrary{datavisualization, positioning,calc,arrows,decorations.pathmorphing,intersections,shapes,snakes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16} 
+\usepackage{metalogo}
+
+% \usepackage{dtklogos}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x$,
+    ylabel = {$f(x)$},
+]
+%Below the red parabola is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=red,
+]
+{x^2 - 2*x - 1};
+\addlegendentry{$x^2 - 2x - 1$}
+%Here the blue parabloa is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {x^2 + 2*x + 1};
+\addlegendentry{$x^2 + 2x + 1$}
+ 
+\end{axis}
+\end{tikzpicture}
+\end{document}

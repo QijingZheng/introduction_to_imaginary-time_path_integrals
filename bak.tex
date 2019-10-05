@@ -1,0 +1,309 @@
+% \documentclass[9pt, handout]{beamer}
+\documentclass[8pt,dvipsnames]{beamer}
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows,decorations.pathmorphing,intersections,shapes,snakes}
+\usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
+\usepackage{sansmath}
+\usepackage{xcolor}
+% \usepackage[usenames, dvipsnames]{color}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+\usepackage{framed}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{mathabx}
+\usepackage{tasks}
+\usepackage{multicol}
+\usepackage{braket}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+
+\usepackage{datetime}
+\yyyymmdddate
+% \renewcommand{\dateseparator}{-}
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+\makeatletter
+\let\@@magyar@captionfix
+\relax\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Customization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Center the frame title
+\setbeamertemplate{frametitle}[default][center]
+\definecolor{MidnightBlue}{rgb}{0.2, 0.2, 0.7}
+\setbeamercolor{frametitle}{fg=white,bg=MidnightBlue}
+\setbeamercolor{block title}{bg=red!30,fg=black}
+
+% Change the FONTSIZE and FONTCOLOR of frametitle
+% \setbeamercolor{frametitle}{fg=blue}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{institute}{size=\normalsize}
+
+% Customize symbols and colors for items
+% \setbeamertemplate{itemize item}{\color{yellow}$\blacksquare$}
+% \setbeamercolor{itemize subitem}{fg=black}
+
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody}{size=\small}
+\setbeamercolor{itemize/enumerate subbody}{fg=black}
+
+\setbeamertemplate{blocks}[default]
+
+% Change Beamer ALERT color
+% \setbeamercolor{alerted text}{fg=red}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Outline}
+    % \tableofcontents[currentsection,currentsubsection]
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+%%%%%%%%%%%% add logo to each slide
+% \logo{
+%     \includegraphics[width=0.6cm]{logo.jpg}
+%     \hskip5pt
+%     \includegraphics[height=0.6cm]{name.jpg}
+%     \hskip2in
+% }
+
+%%%%%%%%%%%% add logo to each frame title
+% \addtobeamertemplate{frametitle}{}{%
+% \begin{tikzpicture}[remember picture,overlay]
+%     \node[anchor=north east,yshift=2pt] at (current page.south west) {
+%       \includegraphics[height=1.0cm]{logo.jpg}
+%       \hskip5pt
+%       \includegraphics[height=1.0cm]{name.jpg}
+%     };
+% \end{tikzpicture}
+% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\angstrom}{\text{\normalfont\AA}}
+\newcommand{\abinitio}[0]{\textit{ab initio}}
+\newcommand{\schro}[0]{Schr\"odinger}
+
+\newcommand{\rt}{(\mathbf{r},t)}
+\newcommand{\rR}{(\mathbf{r},\mathbf{R})}
+\newcommand{\prR}{(\mathbf{r};\mathbf{R})}
+\newcommand{\Rt}{(\mathbf{R},t)}
+\newcommand{\rRt}{(\mathbf{r},\mathbf{R},t)}
+\newcommand{\hamil}[0]{\hat{\cal H}}
+\newcommand{\rvec}[0]{\mathbf{r}}
+\newcommand{\svec}[0]{\mathbf{s}}
+\newcommand{\Rvec}[0]{\mathbf{R}}
+
+\newcommand{\dt}[1]{\mathrm{d}#1}
+\newcommand{\onehalf}[0]{\frac{1}{2}}
+
+\newcommand{\BOsup}[0]{\textnormal{\tiny BO}}
+% \newcommand{\action}{{\cal A}}
+
+\newcommand{\EYSR}{Elliot-Yafet}
+\newcommand{\DPSR}{D'yakonov-Perel'}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\newcommand{\shortminus}{\text{-}}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\newcommand*{\info}[4][16.3]{%
+  \node[
+  annotation, #3, scale=0.65, text width = #1em,
+  inner sep = 6pt
+  ] at (#2) {%
+  \list{$\bullet$}{\topsep=0pt\itemsep=0pt\parsep=0pt
+    \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+    \itemindent=0pt\labelsep=2pt}%
+    #4
+  \endlist
+  };
+}
+
+\newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}[1.2]\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+
+\newenvironment {annotatedFigure}[1]{
+  \centering
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {#1};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]}
+    {\end{scope}
+  \end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title page
+\title[]{
+  Introduction to Imaginary-Time Path Integrals
+}
+\author[Q.J. Zheng]{
+  \textcolor{red}{Qijing Zheng} \\
+  % \smallskip
+  % Supervisor: Prof. Jin Zhao
+}
+\institute[D.P. USTC]{
+  % Hefei National Laboratory for Physical Sciences at the Microscale\\
+  % (HFNL)\\
+  Department of Physics \\
+  \medskip
+  University of Science and Technology of China \\
+  \smallskip
+  \includegraphics[width=2.0cm]{logo.jpg}
+}
+% \titlegraphic{
+%     % \pgfuseimage{titlegraphic}
+%     \includegraphics[width=2.0cm]{logo.jpg}
+%     % \vskip5pt
+%     % \includegraphics[height=0.8cm]{name.jpg}
+% }
+% \date{\today}
+% \date{May 31, 2016}
+\date{Jan 19, 2019}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Title pagee
+% \maketitle and \titlepage will do the same thing, here I choose \titlepage
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outline
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Intro
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{How to model the dynamics of electrons and nuclei from \abinitio?}
+
+  The time-dependent \schro{} equation:
+  $$
+  i\hbar {\partial\Psi\rRt\over\partial t} = \hamil\rR\Psi\rRt
+  $$
+  \medskip
+  In practice, \emph{approximations} have to be made!
+  \footnote{
+      ``\textit{Ab initio} molecular dynamics'', Mariana Rossi, DFT Workshop 2017
+  }
+
+  \begin{center}
+    \begin{tikzpicture}[scale=0.6, transform shape]
+      \path [
+        mindmap,
+        text = white,
+        level 1 concept/.append style =
+          {font=\Large\bfseries},
+        level 2 concept/.append style =
+          {font=\small\bfseries},
+        level 3 concept/.append style =
+          {font=\small\bfseries},
+        root/.style= {
+          concept, ball color=blue,
+          % font=\Huge\bfseries
+        },
+        BS1/.style = {concept, concept color=green!50!black},
+        BS2/.style = {concept, concept color=blue!50!black},
+        BS3/.style = {concept, concept color=red!90!black},
+        BS4/.style = {concept, concept color=olive!90!black},
+        BS5/.style = {concept, concept color=magenta!90!black},
+        BS6/.style = {concept, concept color=orange!90!black},
+        BS7/.style = {concept, concept color=cyan!90!black}
+      ]
+      node (BOA) [root] {
+        \huge Born-Oppenheimer\\ Approximation?
+      } 
+        child[concept color=green!50!black, nodes={BS1}, grow=0] {
+          node (BOYES) {\large\bfseries Quantum Nuclei?}  [clockwise from=90]
+            child [concept color=pink, nodes={BS5}] {
+              node (bomd) {\small\bfseries Born-Oppenheimer MD}}
+            child [concept color=pink, nodes={BS5}] {
+              node (cpmd) {\small Car-Parrinello MD} }
+            child [concept color=orange, nodes={BS4}] {
+              node (pimd) {\small Path-Integrals}}
+            child [concept color=orange, nodes={BS4}] {
+              node (etc)  {\small \ldots}}
+          }
+        child [concept color=magenta, nodes={BS3}, grow=180] {
+          node (BONO) {\large\bfseries Quantum Nuclei?} [counterclockwise from=90]
+            {
+              child [concept color=yellow, nodes={BS6}] {
+                node (EF) {\small Exact Factorizations}}
+              child [concept color=yellow, nodes={BS6}] {
+                node (BD) {\small Bohmian Dynamics}}
+              child [concept color=blue!60!white, nodes={BS7}] {
+                node (EH) {\small Ehrenfest Dynamics}}
+              child [concept color=blue!60!white, nodes={BS7}] {
+                node (SH) {\small Surface Hopping}}
+            }
+          };
+          
+          \path (BOA)  --  node [above=3pt] {\large YES} (BOYES);
+          \path (BOA)  --  node [above=3pt] {\large NO} (BONO);
+
+          \path (BOYES)  --  node [align=center, sloped, above=3pt] {\small\bfseries NO} (bomd);
+          \path (BOYES)  --  node [align=center, sloped, above=3pt] {\small\bfseries NO} (cpmd);
+          \path (BOYES)  --  node [align=center, sloped, above=3pt] {\small\bfseries YES} (pimd);
+          \path (BOYES)  --  node [align=center, sloped, above=3pt] {\small\bfseries YES} (etc);
+
+          \path (BONO)  --  node [align=center, sloped, above=3pt] {\small\bfseries YES} (EF);
+          \path (BONO)  --  node [align=center, sloped, above=3pt] {\small\bfseries YES} (BD);
+          \path (BONO)  --  node [align=center, sloped, above=3pt] {\small\bfseries NO} (EH);
+          \path (BONO)  --  node [align=center, sloped, above=3pt] {\small\bfseries NO} (SH);
+    \end{tikzpicture}
+  \end{center}
+   
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Nuclear Quantum Effects}
+  
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain,c]
+  \begin{center}
+    \Huge Thank you!
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

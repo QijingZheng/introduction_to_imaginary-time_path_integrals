@@ -1,0 +1,84 @@
+\documentclass[border = 60pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{scalefnt}
+\usepackage{tikz}
+\usetikzlibrary{
+    mindmap,
+    datavisualization,
+    positioning,
+    calc,
+    arrows,
+    decorations.pathmorphing,
+    intersections,
+    shapes,
+    snakes
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16} 
+
+\usepackage{metalogo}
+
+% \usepackage{dtklogos}
+\begin{document}
+
+\begin{tikzpicture}
+  \begin{axis}
+    [
+    % title = {Convergence is of order: $1\over P^2$},
+    xlabel = { $P/2\theta = P / \beta\hbar\omega$ },
+    ylabel = {Error/\%},
+    xmin = 1.0, xmax=10.0,
+    xtick = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0},
+    xmajorgrids=true,
+    ymajorgrids=true,
+    grid style=dashed,
+    ]
+        \addplot [
+        color=red,
+        thick,
+        mark=square,
+        mark options = {blue},
+        ] table {Error.csv};
+        % \draw[red] (6.0, 6.0) circle (1.0);
+        \node[draw, anchor=north east, align=left] at (9, 10) {
+          % \begin{minipage}{0.3\linewidth}
+            % \begin{flushleft}
+              \textbf{Energy: $<E>$} \\[3pt]
+              Convergence is of order: $1\over P^2$
+            % \end{flushleft}
+          % \end{minipage}
+        };
+  \end{axis}
+\end{tikzpicture}
+
+% \tikz
+% \datavisualization [school book axes, visualize as line]
+% data [/data point/x=1] {
+% y
+% 1
+% 2
+% }
+% data [/data point/x=2] {
+% y
+% 2
+% 0.5
+% };
+
+% \begin{figure}
+%     \centering
+%     \begin{tikzpicture}
+%       [scale=0.5, x=0.1 cm, y=0.1cm]
+%         \datavisualization [
+%         school book axes,
+%         visualize as smooth line
+%         ]
+%         data [read from file=Error.csv];
+%     \end{tikzpicture}
+% \end{figure}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

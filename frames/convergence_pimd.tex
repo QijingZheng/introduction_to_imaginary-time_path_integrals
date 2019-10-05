@@ -1,0 +1,115 @@
+\begin{frame}
+  \frametitle{Convergence of Standard Path Integral MD}
+
+  For the 1D harmonic oscillator: $V(x) = \frac{1}{2}m\omega x^2$, the RP
+  potential in the normal-mode coordinates
+  \begin{equation*}
+    \sum_{i=1}^P \left[
+    {m\over2(\beta_P\hbar)^2} (x_{\tikzmark{ring_polymer_bc} i+1} - x_i)^2
+    +
+    V(x_i)
+    \right]
+          \quad\Rightarrow\quad
+    \sum_{i=1}^P {1\over2}m(\Omega_i^2 + \omega^2)\tilde{x}_i^2
+  \end{equation*}
+  then $\braket{\tilde{x}_i^2} = 1 / \beta_P m(\Omega_i^2 + \omega^2)$, the energy
+  of the harmonic oscillator $\braket{E}_P$
+  \begin{align*}
+    \braket{E}_P &= 2\cdot {1\over2}m\omega^2\braket{x^2} =
+                                                           {m\omega^2\over P}
+                                                           \sum_{i=1}^P\braket{x_i^2}
+                                                           = 
+                                                           {m\omega^2\over P}
+                                                           \sum_{i=1}^P\braket{\tilde{x}_i^2}
+                                                           \cr
+                                                           &=
+                                                             \frac{\theta}{\beta}
+                                                             \sum_{i=1}^P \frac{
+                                                             \theta
+                                                             }{
+                                                             P^2\sin^2\left({(i-1)\pi\over
+                                                             P}\right) + \theta^2
+                                                             }\qquad\qquad
+                                                             (\theta = \beta\hbar\omega / 2)
+  \end{align*}
+  the exact solution is $\braket{E} = {\theta\over\beta}\coth(\theta)$
+
+  \begin{multicols}{2}
+    \begin{itemize}
+    % \item Commonly used convergence criteria:
+    %   \begin{equation*}
+    %   P > \hbar\omega_{\text{max}} / k_B T
+    % \end{equation*}
+
+    % \item Standard PIMD converges as $1/P^2$.
+    % \item Some properties converges faster, e.g.\ RDF converges fast but heat
+    %   capacity very slowly.
+    % \item Methods exist to accelerate the convergence, e.g.\ PI + GLE.
+    \item[]
+        \begin{center}
+            \resizebox{0.35\textwidth}{!}{
+            \begin{tikzpicture}
+            \begin{axis}
+                [
+                % title = {Convergence is of order: $1\over P^2$},
+                xlabel = { $P/2\theta = P / \beta\hbar\omega$ },
+                ylabel = {$\braket{E} - \braket{E}_P\over\braket{E}$/\%},
+                xmin = 1.0, xmax=10.0,
+                xtick = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0},
+                xmajorgrids=true,
+                ymajorgrids=true,
+                grid style=dashed,
+                ]
+                    \addplot [
+                    color=red,
+                    thick,
+                    mark=square,
+                    mark options = {blue},
+                    ] table {data/E_error.csv};
+
+                    \draw[->, >=stealth, out=180, in=0] (4.0, 8.0) node[
+                    draw=black,
+                    anchor=south west,
+                    text width=8em,
+                    align=center
+                    ] {
+                      $P = \beta\hbar\omega$\\ $\text{Error}\% = 10.55\%$
+                    } to (1.0, 10.55);
+                    \draw[->, >=stealth, out=210, in=0] (5.0, 4.0) node[
+                    draw,
+                    anchor=south west,
+                    text width=8em,
+                    align=center,
+                    ] {
+                      $P = 2\beta\hbar\omega$\\ $\text{Error}\% = 2.98\%$
+                    } to (2.0, 2.98);
+
+                    % \node[draw, anchor=north east, align=left] at (9, 10) {
+                    %     \textbf{Energy: $<E>$} \\[0pt]
+                    %     Convergence is of order: $1\over P^2$
+                    % };
+            \end{axis}
+            \end{tikzpicture}
+            }
+        \end{center}
+    \item Commonly used convergence criteria:
+      % \begin{equation*}
+      \(
+      P > \hbar\omega_{\text{max}} / k_B T
+      \)
+      % \end{equation*}
+
+    \item Standard PIMD converges as $1/P^2$.
+    \item Some properties converges faster, e.g.\ RDF converges fast but heat
+      capacity very slowly.
+    \item Methods exist to accelerate the convergence, e.g.\ PI + GLE.
+      \bigskip
+    \end{itemize}
+
+  \end{multicols}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

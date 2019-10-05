@@ -1,0 +1,177 @@
+\begin{frame}
+  \frametitle{Multiparticle Generalization}
+  For a system of $N$ \emph{distinguishable} nuclei,
+  \footnote{
+    We are neglecting the exchange effect, which is generally fine for nuclei
+    (unless treating \SI{4}{\kelvin} Helium) but not for electrons.
+    \medskip
+% The effect of including exchange is to allow ring
+% polymers representing different particle to “bond” with each other (see Ethan’s talk).
+  }
+  \begin{equation*}
+    \hamil_P = \sum_I^N \frac{\mathbf{p}_I^2}{2m_I}
+    +
+    \underline{
+      \hat{V}\tikzmark{n_particle_V}(\mathbf{x}_1,\ldots,\mathbf{x}_N)
+    },
+  \end{equation*}
+
+  \begin{tikzpicture}
+    [overlay, remember picture]
+    \node[
+    draw=black, rounded corners=3pt, below right = 1em and 10em of
+    n_particle_V,
+    % text width=4.25cm,
+    align=left, % inner sep=0pt
+    anchor=north,
+    ] (n_particle_note1) {
+      \begin{minipage}{0.40\linewidth}
+        \tiny
+        \textbf{Potential energy:} could be from emperical potential or from \abinitio{}
+        calculations. \emph{Born-Oppenheimer approximation} implicitly implied.
+      \end{minipage}
+    };                     
+    \draw[red,->, >=stealth, in=-90, out=180] (n_particle_note1.west) to ($
+    (n_particle_V.north east) + (3pt, -6pt)
+    $);
+  \end{tikzpicture}
+
+  The PIMD Hamiltonian is
+  \begin{equation*}
+    H_P(\{\mathbf{x}\}, \{\mathbf{p}\}) =
+    \sum_{\tikzmark{particle_ind}I=1}^N \sum_{\tikzmark{bead_ind}i=1}^P
+    \left[
+      \frac{(\mathbf{p}^i_I)^2}{2\tilde{m}_I^i}
+      +
+      \frac{1}{2} m_I \tikzmark{omegaP}\omega_P^2 (\mathbf{x}^{i+1}_I - \mathbf{x}^i_I)^2
+    \right]
+      +
+      \sum_{i=1}^P 
+      \hat{V}(\mathbf{x}_1^i,\ldots,\mathbf{x}_N^i)
+  \end{equation*}
+
+  \begin{tikzpicture}
+    [overlay, remember picture]
+
+    \node[
+    draw=black, rounded corners=3pt, below left = 2.5em and 4em of
+    particle_ind,  align=center, % inner sep=0pt
+    anchor=south,
+    ] (index_particle_note) {
+      \small sum over nuclei index
+    };                     
+
+    \node[
+    draw=black, rounded corners=3pt, below right = 2.5em and 4em of
+    bead_ind,  align=center, % inner sep=0pt
+    anchor=south,
+    ] (index_bead_note) {
+      \small sum over bead index
+    };                     
+
+    \node[
+    draw=black, rounded corners=3pt, right = 2.5em of index_bead_note,
+    align=center, % inner sep=0pt
+    % anchor=south,
+    ] (omegaP_note) {
+      \small $\omega_P = P k_B T / \hbar$
+    };                     
+
+    \draw[red,->, >=stealth, in=-90, out=90] (index_particle_note.north) to ($
+    (particle_ind.south) + (6pt, -3pt)
+    $);
+    \draw[red,->, >=stealth, in=-90, out=90] (index_bead_note.north) to ($
+    (bead_ind.south) + (6pt, -3pt)
+    $);
+    \draw[red,->, >=stealth, in=-90, out=90] (omegaP_note.north) to ($
+    (omegaP.south) + (6pt, -3pt)
+    $);
+  \end{tikzpicture}
+  
+  \vspace{12pt}
+  \begin{figure}
+    \centering
+    \resizebox{0.85\textwidth}{!}{
+    \begin{tikzpicture}
+        [
+        spring/.style={
+        line width=0.5pt, decorate,
+        decoration={
+            coil, amplitude=3.0, 
+            segment length=2.5
+        }}, 
+        potential/.style={
+        line width=0.5pt, decorate,
+        color=green!50!black, dashed,
+        decoration={
+            snake, amplitude=2.0, 
+            segment length=100
+        }}
+        ]
+        \def\pointsA{
+            1.0000/   0.0000,
+            0.5136/   0.8896,
+            -0.5112/   0.8853,
+            -1.0629/   0.0000,
+            -0.6401/  -1.1086,
+            0.5326/  -0.9226
+        }
+        \def\rpoffset{(4.0, -0.5)}
+
+        % Draw the potential
+        % \draw [line width=2pt, domain=-12.5:-7.5] plot [samples=300] (\x, {0.5 * (\x + 10) * (\x + 10) - 1.5});
+        % \draw [line width=2pt, domain=-2.5:2.5] plot [samples=300] (\x, {0.5 * (\x + 0) * (\x + 0) - 1.5});
+        % Draw an arrow
+        \draw [line width=1.5pt, ->, >=stealth] (-5, 0) -- (-2, 0);
+
+        % First, draw the springs for the first RP
+        \draw[spring, color=red] (  1.0000,   0.0000) 
+                            -- (  0.5136,   0.8896) 
+                            -- ( -0.5112,   0.8853) 
+                            -- ( -1.0629,   0.0000) 
+                            -- ( -0.6401,  -1.1086) 
+                            -- (  0.5326,  -0.9226) 
+                            -- cycle;
+        % First, draw the springs for the second RP
+        \draw[spring, color=blue] ($ (  1.0000,   0.0000) + (4.0, -0.5) $)
+                              -- ($ (  0.5136,   0.8896) + (4.0, -0.5) $)
+                              -- ($ ( -0.5112,   0.8853) + (4.0, -0.5) $)
+                              -- ($ ( -1.0629,   0.0000) + (4.0, -0.5) $)
+                              -- ($ ( -0.6401,  -1.1086) + (4.0, -0.5) $)
+                              -- ($ (  0.5326,  -0.9226) + (4.0, -0.5) $)
+                              -- cycle;
+
+        % draw the interaction between the two atoms
+        \draw[potential] (-10, 0) -- node[above, sloped]
+        {$\hat{V}(\mathbf{x}_1,\ldots,\mathbf{x}_N$)} ++\rpoffset;
+        \draw[potential, line width=0pt] (-0.64, -1.11) -- node[below, sloped]
+        {$\hat{V}(\mathbf{x}_1^i,\ldots,\mathbf{x}_N^i$)} ++\rpoffset;
+        % Draw the single particles
+        \shade[shading=ball, ball color=blue!50!cyan] (-10, 0) circle (8pt);
+        \shade[shading=ball, ball color=red] ($ (-10, 0.0) + (4.0, -0.5) $) circle (8pt);
+
+        \foreach \x/\y in \pointsA {
+            \coordinate (A) at (\x, \y);
+            % draw the interaction between the two atoms
+            \draw[potential] (A) -- ++\rpoffset;
+            % Ring-Polymer of the first atom
+            \shade[shading=ball, ball color=blue!50!cyan] (A) circle (8pt);
+            % Ring-Polymer of the second atom
+            \shade[shading=ball, ball color=red] ($ (A) + (4.0, -0.5) $) circle (8pt);
+        }
+        \node[] at (-8, -2.5) {
+        % \fontsize{24}{12pt}\selectfont
+        \huge
+        % $Z = \tr \left[e^{-\beta\hamil}\right]$
+        quantum particle
+        };
+        \node[text width=5cm, align=center] at (2.0, -2.5) {
+        % \fontsize{24}{12pt}\selectfont
+        \huge
+        % configuration integral of classical ring-polymer
+        classical ring-polymers
+        };
+      \end{tikzpicture}
+    }
+  \end{figure}
+\end{frame}

@@ -1,0 +1,103 @@
+\begin{frame}
+  \frametitle{PIMD --- Introducing Momenta}
+  % Note the standard Gaussian integral
+  % \begin{equation*}
+  %   \label{eq:gauss_int}
+  %   \left({\beta\over2\pi {\tilde{m}}}\right)^{1/2}\int\dt{p}\,e^{-\beta p^2/2\tilde{m}} = 1
+  % \end{equation*}
+  Insert $P$ Gaussian integral into $Z$:
+  $\displaystyle\quad
+  \left({\beta\over2\pi {\tilde{m}}}\right)^{1/2}\int\dt{p}\,e^{-\beta p^2/2\tilde{m}} = 1
+  $
+  \begin{align*}
+    Z &=
+    % \left({1\over2\pi\hbar}\sqrt{m\over\tikzmark{mass_matrix}\tilde{m}}\right)^P
+        \left({1\over2\pi\hbar}\right)^P\prod_{i=1}^P\sqrt{m\over\tikzmark{mass_matrix}\tilde{m}_i}
+         \lim_{P\to\infty} 
+         \int\dt{x_1}\ldots\int\dt{x_P}
+         \int\dt{p_1}\ldots\int\dt{p_P}\,\cr
+    & \phantom{
+      % \left({1\over2\pi\hbar}\sqrt{m\over\tilde{m}}\right)^P
+      \left({1\over2\pi\hbar}\right)^P\prod_{i=1}^P\sqrt{m\over\tilde{m}_i}
+      \lim_{P\to\infty}}
+      \exp\left\{
+          \displaystyle
+          -\beta_P
+          \sum_{i=1}^P \left[
+            {p_i^2\over 2\tikzremember{pseudo_mass}{$\tilde{m}_i$}} +
+            {\tikzremember{real_mass}{$m$}\over2(\beta_P\hbar)^2} (x_{i+1} - x_i)^2 +
+            V(x_i)
+          \right]
+        \right\}\cr
+    &= {\cal C} \lim_{P\to\infty}
+      \int\dt{\mathbf{x}^P}\int\dt{\mathbf{p}^P}
+      \exp\left[-\beta_P H_P(\mathbf{x}, \mathbf{p})\right]
+  \end{align*}
+
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[
+    draw=black, rounded corners=3pt, above right = 1em and 5em of
+    real_mass, align=center, % inner sep=0pt
+    ] (note1) {
+      \small real physical mass
+    };                     
+    \draw[red,->, >=stealth, in=90, out=-90] (note1.south west) to ($
+    (real_mass.north east) + (-3pt, 3pt)$ );
+    % \draw[red,->, >=stealth] (note1.south) -- ++(0, -2.0em) -| (real_mass.north east);
+
+    \node[
+    draw=black, rounded corners=3pt, below right = 0.8em and 2em of
+    pseudo_mass, text width=4.5cm, align=center,
+    ] (note2) {
+      \begin{minipage}{1.0\linewidth}
+        \small $\tilde{m}_i$ need \emph{not} be physical. More general form:
+        \(\displaystyle
+          \frac{1}{2}\mathbf{p}^T \mathrm{M}^{-1} \mathbf{p}
+        \), where $\mathrm{M}$ is the mass matrix, and $\mathbf{p} = (p_1,\ldots,p_P)$.
+      \end{minipage}
+    };                     
+    \draw[red,->, >=stealth, in=-90, out=180] (note2.west) to ($
+    (pseudo_mass.south east) + (-3pt, -3pt) $);
+
+    \node[
+    draw=black, rounded corners=3pt, below left = 1.0em and 1em of
+    mass_matrix, align=center,
+    ] (note3) {
+        \small More general: \\[3pt]
+        $\prod_i{\tilde{m}_i} \Rightarrow \det[\mathrm{M}]$
+    };                     
+    \draw[red,->, >=stealth, in=-90, out=0] (note3.east) to ($
+    (mass_matrix.south) + (3pt, -3pt) $);
+    
+    % \node (kaka) {kaka};
+    % \draw[blue] ($ (kaka.south west) + (0.0, -3pt) $) -- ($ (kaka.south east) + (0.0, -3pt) $);
+    
+  \end{tikzpicture}
+
+  \vspace{6pt}
+  \begin{itemize}
+    \item PIMD trajectories are obtained by integrating Hamilton's classical
+      equaiton of motion
+      % \footnote{
+      % $\beta_P H_P(\mathbf{x}, \mathbf{p})$ can also be defined as
+      % $\beta\left( H_P(\mathbf{x}, \mathbf{p})/P\right)$, which affects the
+      % dynamics but not the statistics.
+      % }
+      \begin{equation*}
+        {\dt{p_i}\over\dt{t}} = {}+{\partial H_P(\mathbf{x},
+          \mathbf{p})\over\partial x_i};
+        \qquad
+        {\dt{x_i}\over\dt{t}} = {}-{\partial H_P(\mathbf{x},
+          \mathbf{p})\over\partial p_i}
+      \end{equation*}
+
+    \item $\beta_P H_P(\mathbf{x}, \mathbf{p}) \Rightarrow
+      \beta\left( H_P(\mathbf{x}, \mathbf{p})/P\right)$, which affects the
+      dynamics but not the statistics.
+    \item Different mass matrices give the same static average, only
+      dynamics will be changed.
+    \item Mathematically, the main difference between PIMD, PACMD and RPMD is the
+      choice of the mass matrix. Physically, they differ dramatically!
+  \end{itemize}
+  
+\end{frame}

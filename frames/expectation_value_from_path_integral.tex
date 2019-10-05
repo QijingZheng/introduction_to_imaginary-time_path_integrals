@@ -1,0 +1,52 @@
+\begin{frame}
+  \frametitle{Expectation Values from Path Integral}
+  For a Hermitian operator $\hat{A}$, the expectation value follows,
+  \begin{equation*}
+    \braket{\hat{A}} = \frac{1}{Z} \tr\left[\hat{A}e^{-\beta\hamil}\right]
+    = \frac{1}{Z} \tr\left[\hat{A}(e^{-{\beta_P}\hamil})^P\right]
+  \end{equation*}
+  if $\hat{A}$ is purely a function of $\hat{x}$, i.e.\ $\hat{A}(\hat{x})\ket{x}
+  = a(x)\ket{x}$, then
+  \footnote{
+   ``Statistical Mechanics: Theory and Molecular Simulation'', Mark E. Tuckerman 
+  }
+  \begin{align*}
+    \braket{\hat{A}} &=
+                       \frac{1}{Z}
+                       \lim_{P\to\infty}
+                       \int\dt{x_1}\ldots\int\dt{x_P}\,
+                       \left(m \over2\pi\beta_P\hbar^2\right)^{P/2} \cr
+    &\phantom{
+                       \frac{1}{Z}
+                       \lim_{P\to\infty}
+                       } 
+        \left( {1\over P}\sum_{i=1}^P a(x_i) \right)
+        \exp\left\{
+          \displaystyle
+          -\beta_P
+          \sum_{i=1}^P \left[
+            {m\over2(\beta_P\hbar)^2} (x_{\tikzmark{ring_polymer_bc} i+1} - x_i)^2
+            +
+            V(x_i)
+          \right]
+        \right\} \Bigg|_{x_{P+1} = x_1}
+  \end{align*}
+
+  \begin{itemize}
+  \item If $\hat{A}$ is a function of momentum opeator $\hat{p}$, then the
+    \emph{cyclic-path} condition $x_{P+1} = x_1$ is released, in which case one should resort to
+    the so-called \emph{open-path} path integral method.
+  \item The thermodynamic functions, which may depend on both $\hat{x}$ and
+    $\hat{p}$, are exceptional because thermodynamic relations can be used. For example
+
+    % \begin{align*}
+    %   E &= \braket{\hamil} = \braket{\frac{\hat{p}^2}{2m} + V(\hat{x})} \cr
+    %   &= -{\partial\over\partial\beta}\ln Z = {1\over Z}{\partial Z\over\partial\beta}
+    % \end{align*}
+
+    \begin{equation*}
+      E = \braket{\hamil} = \braket{\frac{\hat{p}^2}{2m} + V(\hat{x})} 
+      = -{\partial\over\partial\beta}\ln Z = {1\over Z}{\partial Z\over\partial\beta}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
