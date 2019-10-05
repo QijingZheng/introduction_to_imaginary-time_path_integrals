@@ -1,0 +1,44 @@
+\begin{frame}
+  \frametitle{Frequencies in PIMD}
+
+  For the 1D harmonic oscillator: $V(x) = \frac{1}{2}m\omega x^2$, 
+  the normal mode frequencies
+  \begin{equation*}
+    \tilde{\Omega}_i = \sqrt{\Omega_i^2 + \omega^2};\qquad \Omega_i = 2\omega_P \sin\left({(i-1)\pi\over P}\right)
+  \end{equation*}
+  Hence the highest frequency is
+  \begin{equation*}
+    \tilde{\Omega}_{\text{max}} = \sqrt{\Omega_{\text{max}}^2 + \omega^2} =
+    \sqrt{4\omega_P^2 + \omega^2}
+  \end{equation*}
+  If we use the typical convergence criteria: $P = \alpha\hbar\omega / k_BT$,
+  where $\alpha > 1$ determines how accurate the calculation is.
+  \begin{equation*}
+    \tilde{\Omega}_{\text{max}} = (4\alpha^2 + 1)^{1\over2}\omega
+  \end{equation*}
+
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item For $\alpha = 1$, the highest frequency in PIMD is $\sqrt{5}$ times larger
+      than classical MD.
+    \item For a \emph{naive} implementation of PIMD, the time step should be $\sqrt{5}$ times
+      smaller than classical MD.
+    \vfill\null
+    \columnbreak
+    \item Methods to allow bigger time-steps:
+      \begin{enumerate}
+      \item  Scale the normal mode masses so they all oscillate at the same
+        frequency.
+      \item Multiple time-scale molecular dynamics: use smaller time-steps for
+        bead forces.
+      \item Use an integrator where the free ring polymer is evolved exactly.
+      \end{enumerate}
+
+    \end{itemize}
+    
+  \end{multicols}
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
