@@ -28,6 +28,8 @@
   \begin{multicols}{2}
     \begin{itemize}
         % \item $\tilde{x}_0 = (1/P)\sum_{i=1}^P x_i$ corresponds to the centroid and $\Omega_0 = 0$.
+        % \item $\tilde{x}_1 = (1/P)\sum_{i=1}^P x_i$ corresponds to the centroid.
+        \item $\tilde{x}_1$ corresponds to the centroid and $\Omega_1 = 0$.
         \item The transformation $\mathbf{\tilde{x}} \Leftrightarrow \mathbf{x}$
           can be done with FFT.\footnote[frame]{
             \textit{J. Chem. Phys.}, \textbf{104}, 2028(1996).
@@ -65,10 +67,10 @@
                 \end{tikzpicture}
             % }
         \end{center}
-        \item The unitary transformation matrix $\mathbf{U}$ for even $P$
 
+        \item The unitary transformation matrix $\mathbf{U}$ for even $P$
             \begin{equation*}
-              \small
+              \tiny
                 U_{jk} =
                 \begin{cases}
                 \sqrt{1/P}, & k = 1 \\
@@ -77,15 +79,14 @@
                 \sqrt{2/P}\sin(2\pi jk /P), & P/2 + 2 \le k \le P
                 \end{cases}
             \end{equation*}
-          \item Note that in many books
+          \item Note if we choose $\beta_P H_P \Rightarrow \beta (H_P/P)$, then
             \begin{align*}
                 \mathbf{\tilde{x}} &= \frac{1}{\sqrt{P}} \,\mathbf{U} \cdot
                                      \mathbf{x} \cr
                 \mathbf{x} &= \sqrt{P} \,\mathbf{U}^T \cdot
                                      \mathbf{\tilde{x}}
             \end{align*}
-            then $\tilde{x}_1 = (1/P)\sum_{i=1}^P x_i$ corresponds to the
-            centroid, which is useful in CMD.
+            
 
     \end{itemize}
     
@@ -190,6 +191,4 @@
   %       \end{figure}
   %   \end{column}
   % \end{columns}
-
-
 \end{frame}

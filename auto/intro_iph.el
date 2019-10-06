@@ -29,6 +29,7 @@
     "frames/convergence_pimd"
     "frames/frequencies_pimd"
     "frames/pimd_cmd_rpmd"
+    "frames/cmd_rpmd_init"
     "frames/thanks"
     "beamer"
     "beamer10"))
