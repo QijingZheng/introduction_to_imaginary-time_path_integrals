@@ -69,15 +69,17 @@
       &=\lim_{P\to\infty} 
         \int\dt{x_1}\ldots\int\dt{x_P}\,
         \left(m \over2\pi\beta_P\hbar^2\right)^{P/2}
-        \exp\left\{
+        \exp\Biggl\{
           \displaystyle
           -\beta_P
+          \underbrace{
           \sum_{i=1}^P \left[
             {m\over2(\beta_P\hbar)^2} (x_{\tikzmark{ring_polymer_bc} i+1} - x_i)^2
             +
             V(x_i)
-          \right]
-        \right\} \Bigg|_{x_{P+1} = x_1}
+        \right]
+        }_{V_{\text{eff}}(x_1,\ldots,x_P)}
+        \Biggr\} \Bigg|_{x_{P+1} = x_1}
   \end{align*}
 
   % \begin{tikzpicture}
