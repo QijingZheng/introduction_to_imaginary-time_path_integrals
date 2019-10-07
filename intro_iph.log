@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  6 OCT 2019 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  7 OCT 2019 11:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2144,7 +2144,11 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <32> not available
 ])
 (./frames/ring_polymer_normal_modes.tex
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 194.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 196.
+
+
+Overfull \vbox (0.30801pt too high) detected at line 196
+ []
 
 [12
 
@@ -2194,14 +2198,11 @@ Package rerunfilecheck Info: File `intro_iph.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.14pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  54909 strings out of 492639
  1307911 string characters out of 6129287
- 1565253 words of memory out of 5000000
+ 1567251 words of memory out of 5000000
  57867 multiletter control sequences out of 15000+600000
  553489 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2232,7 +2233,7 @@ ive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loca
 l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/l
 ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on intro_iph.pdf (18 pages, 621481 bytes).
+Output written on intro_iph.pdf (18 pages, 622043 bytes).
 PDF statistics:
  665 PDF objects out of 1000 (max. 8388607)
  586 compressed objects within 6 object streams
