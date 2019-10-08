@@ -68,3 +68,9 @@
         \begin{scope}[x={(image.south east)},y={(image.north west)}]}
     {\end{scope}
   \end{tikzpicture}}
+
+\newcommand{\zjball}[2][2pt]{
+    \tikz[baseline=(current bounding box.south)] \shade[
+        shading=ball, ball color=#2,
+    ] (0.0, 0.0) circle (#1);
+}

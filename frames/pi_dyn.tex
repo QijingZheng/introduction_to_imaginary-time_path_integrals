@@ -1,11 +1,107 @@
 \begin{frame}
-  \frametitle{CMD and RPMD}
-  \centerline{
-    \fbox{
-        Standard PIMD gives exact \textcolor{blue}{static equilibrium}
-        properties not the \textcolor{red}{dynamical} ones!
-    }
-  }
+  \frametitle{PIMD, CMD and RPMD}
+
+  % \begin{center}
+  %   \fbox{
+  %       Standard PIMD gives exact \textcolor{blue}{static equilibrium}
+  %       properties not the \textcolor{red}{dynamical} ones!
+  %   }
+  % \end{center}
+
+  \begin{center}
+    
+    \begin{tikzpicture}
+      [
+      every annotation/.style = {font = \small}
+      ]
+        \fill[black!20!white] (0, 0) circle(1.2);
+        \fill[white] (0, 0) circle(0.6);
+        \foreach \a/\c in {60/red!40!white, 180/green!40!white, 300/blue!40!white}
+        {
+            \fill[white] (\a:1.35) circle (.5);
+            \fill[\c] (\a:1.35) circle (.4);
+        }
+        \coordinate (pimd) at (60:1.35);
+        \coordinate (cmd)  at (180:1.35);
+        \coordinate (rpmd) at (300:1.35);
+
+        \node[align=center] (NQEs) at (0.0, 0.0) {NQEs};
+
+        \node[
+            inner sep=3pt,
+            draw, line width=0.5pt,
+            rounded corners=3pt,
+            anchor=south west,
+            annotation,
+            text width=13em
+        ] at ($ (pimd) + (60:0.15) $) {
+            \centerline{\normalsize \textcolor{blue}{PIMD}}
+            \vspace{-\medskipamount}
+            \begin{list}{\zjball[2pt]{red}}{\
+                \topsep=0pt\itemsep=3pt\parsep=0pt
+                \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+                \itemindent=0pt\labelsep=2pt
+            }
+            \item Static \textcolor{blue}{equilibrium} properties.
+            \item Need to efficiently sample the phase surface.
+                \begin{list}{\zjball[2pt]{blue}}{\
+                \topsep=0pt\itemsep=3pt\parsep=0pt
+                \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+                \itemindent=0pt\labelsep=2pt
+                }
+                \item Thermostatting
+                \item Coordinate transformation
+                \end{list}
+            \end{list}
+        };
+
+        \node[
+            inner sep=3pt,
+            draw, line width=0.5pt,
+            rounded corners=3pt,
+            annotation, anchor=north west,
+            text width=13em
+        ] at ($ (rpmd) + (300:0.15) $) {
+            \centerline{\normalsize \textcolor{blue}{RPMD}}
+            \vspace{-\medskipamount}
+            \begin{list}{\zjball[2pt]{red}}{\
+                \topsep=0pt\itemsep=3pt\parsep=0pt
+                \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+                \itemindent=0pt\labelsep=2pt
+            }
+                \item Approximate quantum \textcolor{red}{dynamics}
+                \item Efficiently sample the phase surface.
+            \end{list}
+        };
+
+        \node[
+            inner sep=3pt,
+            draw, line width=0.5pt,
+            rounded corners=3pt,
+            annotation, anchor=east,
+            text width=16em
+        ] at ($ (cmd) + (180:0.30) $) {
+            \centerline{\normalsize \textcolor{blue}{CMD}}
+            \vspace{-\medskipamount}
+            \begin{list}{\zjball[2pt]{red}}{\
+                \topsep=0pt\itemsep=3pt\parsep=0pt
+                \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+                \itemindent=0pt\labelsep=2pt
+            }
+            \item Approximate quantum \textcolor{red}{dynamics}
+            \item Path centroid idea
+            \begin{equation*}
+                m \ddot{x}_c = \braket{
+                \delta(x_0 - x_c) {1\over P}
+                \sum_{i=1}^P {\partial V(x_i) \over \partial x_i}
+                }
+            \end{equation*}
+
+            \item 
+            \end{list}
+        };
+    \end{tikzpicture}
+  \end{center}
 
 \end{frame}
 %%% Local Variables:

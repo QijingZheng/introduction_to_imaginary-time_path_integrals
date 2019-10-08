@@ -1,8 +1,8 @@
 \begin{frame}
   \frametitle{PIMD, (PA)CMD and RPMD --- Fictitious Masses}
   The RP Hamiltonian in the normal-mode coordinates
-  \begin{equation*}
-    H_P(\{\mathbf{\tilde{x}}\}, \{\mathbf{\tilde{p}}\}) =
+  \begin{align*}
+    H_P(\{\mathbf{\tilde{x}}\}, \{\mathbf{\tilde{p}}\}) &=
     \sum_{i=1}^P
     \left[
       \frac{\tilde{p}_i^2}{2\tilde{m}_i}
@@ -10,10 +10,57 @@
       \frac{1}{2} m \Omega_i^2 \tilde{x}_i^2
     \right]
       +
-      \sum_{i=1}^P 
-      \hat{V}\left(x_i(\tilde{x}_1,\ldots,\tilde{x}_P)\right)
+      \sum_{i=1}^P V\left(x_i(\tilde{x}_1,\ldots,\tilde{x}_P)\right) \cr
+      \Rightarrow \quad
+      \tilde{m}_i \ddot{\tilde{x}}_i &=
+                           -m
+                           \tikzmark{RPOmega}\Omega_i^2
+                           \tilde{x}_i
+                           - \sum_{j=1}^P
+                           {
+                           \partial
+                           V\left(x_j(\tilde{x}_1,\ldots,\tilde{x}_P)\right)
+                           \over
+                           \partial
+                           \tilde{x_i} \tikzmark{RPPot}
+                           }
+  \end{align*}
+
+  \begin{tikzpicture}
+    [overlay, remember picture]
+
+    % \node[
+    % draw=black, rounded corners=3pt, below left = 1em and 2em of
+    % RPOmega,
+    % align=left,
+    % anchor=north,
+    % ] (rp_omega_note_1) {
+    %   $\Omega_1 = 0$
+    % };                     
+    % \draw[red,->, >=stealth, in=-90, out=0] (rp_omega_note_1.east) to ($
+    % (RPOmega) + (3pt, -6pt)
+    % $);
+    
+    \node[
+    draw=black, rounded corners=3pt, right = 5em of RPPot,
+    align=left,
+    % anchor=north,
+    ] (rp_pot_note_1) {
+      $
+      \sum_{j=1}^P {\partial V(x_j) \over \partial x_j} U^T_{ji}
+      $
+    };                     
+    \draw[red,->, >=stealth, in=-90, out=180] (rp_pot_note_1.west) to ($
+    (RPPot) + (-3pt, -4pt)
+    $);
+  \end{tikzpicture}
+
+  Note that $\tilde{x}_1 = 1/\sqrt{U} \sum_{j=1}^P x_j$ and $\Omega_1 = 0$, we have
+  \begin{equation*}
+      \tilde{m}_1 \ddot{\tilde{x}}_1 =
+      - {1\over\sqrt{P}} \sum_{j=1}^P {\partial V(x_j) \over \partial x_j}
   \end{equation*}
-  \medskip
+
   \begin{itemize}
   \item \textcolor{blue}{{PIMD}} --- scale the mass so that all the frequencies are the
     same and not dependent on $P$.

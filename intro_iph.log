@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  7 OCT 2019 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  8 OCT 2019 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2143,11 +2143,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <32> not available
 
 ])
 (./frames/ring_polymer_normal_modes.tex
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 196.
-
-
-Overfull \vbox (0.30801pt too high) detected at line 196
+Overfull \vbox (4.30801pt too high) detected at line 201
  []
 
 [12
@@ -2169,10 +2165,10 @@ Overfull \vbox (12.51776pt too high) detected at line 110
 
 ]) (./frames/frequencies_pimd.tex [15
 
-]) (./frames/pimd_cmd_rpmd.tex [16
+]) (./frames/pi_dyn.tex [16
 
 ])
-(./frames/pi_dyn.tex [17
+(./frames/pimd_cmd_rpmd.tex [17
 
 ]) (./frames/cmd_rpmd_init.tex [18
 
@@ -2201,12 +2197,15 @@ Package rerunfilecheck Info: File `intro_iph.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.14pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 54916 strings out of 492639
- 1307988 string characters out of 6129287
- 1566287 words of memory out of 5000000
- 57869 multiletter control sequences out of 15000+600000
+ 54993 strings out of 492639
+ 1309441 string characters out of 6129287
+ 1570014 words of memory out of 5000000
+ 57946 multiletter control sequences out of 15000+600000
  553489 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,21n,130p,1036b,2320s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2232,14 +2231,16 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 /2018/texmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb></usr/local/texliv
 e/2018/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/local/texli
 ve/2018/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/te
-xlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on intro_iph.pdf (19 pages, 624363 bytes).
+ive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathb7.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathb8.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on intro_iph.pdf (19 pages, 630885 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 613 compressed objects within 7 object streams
+ 702 PDF objects out of 1000 (max. 8388607)
+ 619 compressed objects within 7 object streams
  43 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
