@@ -1,5 +1,5 @@
 \begin{frame}
-  \frametitle{PIMD, CMD and RPMD}
+  \frametitle{PIMD, CMD and RPMD\thinspace\footnotemark}
 
   % \begin{center}
   %   \fbox{
@@ -12,10 +12,30 @@
     
     \begin{tikzpicture}
       [
-      every annotation/.style = {font = \small}
+      every annotation/.style = {font = \small},
+      spring/.style={
+        line width=0.5pt,
+        decorate,
+        decoration={
+            coil,
+            amplitude=3.0, 
+            segment length=4.5,
+          }
+        }, 
       ]
         \fill[black!20!white] (0, 0) circle(1.2);
         \fill[white] (0, 0) circle(0.6);
+
+        \draw[spring, draw=red] (60:1.35) arc[
+            radius=1.35, start angle=60, end angle=180
+        ];
+        \draw[spring, draw=green] (180:1.35) arc[
+            radius=1.35, start angle=180, end angle=300
+        ];
+        \draw[spring, draw=blue] (300:1.35) arc[
+            radius=1.35, start angle=-60, end angle=60
+        ];
+
         \foreach \a/\c in {60/red!40!white, 180/green!40!white, 300/blue!40!white}
         {
             \fill[white] (\a:1.35) circle (.5);
@@ -24,8 +44,8 @@
         \coordinate (pimd) at (60:1.35);
         \coordinate (cmd)  at (180:1.35);
         \coordinate (rpmd) at (300:1.35);
-
-        \node[align=center] (NQEs) at (0.0, 0.0) {NQEs};
+        
+        \node[align=center] (NQEs) at (0.0, 0.0) {\textcolor{blue}{NQEs}};
 
         \node[
             inner sep=3pt,
@@ -37,14 +57,15 @@
         ] at ($ (pimd) + (60:0.15) $) {
             \centerline{\normalsize \textcolor{blue}{PIMD}}
             \vspace{-\medskipamount}
-            \begin{list}{\zjball[2pt]{red}}{\
+            \begin{list}{\zjball{red}}{\
                 \topsep=0pt\itemsep=3pt\parsep=0pt
                 \parskip=0pt\labelwidth=8pt\leftmargin=8pt
                 \itemindent=0pt\labelsep=2pt
             }
             \item Static \textcolor{blue}{equilibrium} properties.
-            \item Need to efficiently sample the phase surface.
-                \begin{list}{\zjball[2pt]{blue}}{\
+            \item Need to sample the phase surface efficiently and ergodically.
+              \smallskip
+                \begin{list}{\zjball{blue}}{\
                 \topsep=0pt\itemsep=3pt\parsep=0pt
                 \parskip=0pt\labelwidth=8pt\leftmargin=8pt
                 \itemindent=0pt\labelsep=2pt
@@ -62,15 +83,22 @@
             annotation, anchor=north west,
             text width=13em
         ] at ($ (rpmd) + (300:0.15) $) {
-            \centerline{\normalsize \textcolor{blue}{RPMD}}
+          \centerline{\normalsize \textcolor{blue}{RPMD}
+            % \footnote[frame]{
+            %   \textit{J. Chem. Phys.}, \textbf{121}, 3368 (2004);\enspace
+            %   \textit{J. Chem. Phys.}, \textbf{125}, 124105 (2006)
+            % }
+          }
             \vspace{-\medskipamount}
-            \begin{list}{\zjball[2pt]{red}}{\
+            \begin{list}{\zjball{red}}{\
                 \topsep=0pt\itemsep=3pt\parsep=0pt
                 \parskip=0pt\labelwidth=8pt\leftmargin=8pt
                 \itemindent=0pt\labelsep=2pt
             }
                 \item Approximate quantum \textcolor{red}{dynamics}
-                \item Efficiently sample the phase surface.
+                \item Standard PIMD with physical bead masses.
+                \item Thermostats should \emph{not} be used.
+                \item Must sample initial conditions.
             \end{list}
         };
 
@@ -81,9 +109,13 @@
             annotation, anchor=east,
             text width=16em
         ] at ($ (cmd) + (180:0.30) $) {
-            \centerline{\normalsize \textcolor{blue}{CMD}}
+          \centerline{\normalsize \textcolor{blue}{CMD}
+            % \footnote{
+            %   J. Chem. Phys. 100, 5093 (1994)
+            % }
+          }
             \vspace{-\medskipamount}
-            \begin{list}{\zjball[2pt]{red}}{\
+            \begin{list}{\zjball{red}}{\
                 \topsep=0pt\itemsep=3pt\parsep=0pt
                 \parskip=0pt\labelwidth=8pt\leftmargin=8pt
                 \itemindent=0pt\labelsep=2pt
@@ -97,11 +129,28 @@
                 }
             \end{equation*}
 
-            \item 
             \end{list}
+
+            \smallskip
+            \centerline{\textcolor{blue}{(PA)CMD} }
+            \begin{list}{\zjball{red}}{\
+                \topsep=0pt\itemsep=3pt\parsep=0pt
+                \parskip=0pt\labelwidth=8pt\leftmargin=8pt
+                \itemindent=0pt\labelsep=2pt
+            }
+              \item Standard PIMD with adiabatic separation of centroid and
+                non-centroid motions.
+              \item No thermostat for the centroid mode.
+              \item Thermostatting for noncentroid mode as in PIMD.
+              \item Must sample initial conditions.
+           \end{list}
         };
     \end{tikzpicture}
   \end{center}
+  \footnotetext{
+    \textit{J. Chem. Phys.}, \textbf{130}, 194510(2009); \\
+    \textit{J. Chem. Phys.}, \textbf{129}, 074501(2009); \\
+  }
 
 \end{frame}
 %%% Local Variables:
