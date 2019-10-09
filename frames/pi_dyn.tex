@@ -1,5 +1,13 @@
 \begin{frame}
-  \frametitle{PIMD, CMD and RPMD\thinspace\footnotemark}
+  \frametitle{PIMD, CMD and RPMD
+  \footnote{
+    \begin{minipage}[t]{1.0\linewidth}
+    \textit{J. Chem. Phys.}, \textbf{130}, 194510(2009); \\
+    \textit{J. Chem. Phys.}, \textbf{129}, 074501(2009); \\
+    \end{minipage}
+    \smallskip
+  }
+  }
 
   % \begin{center}
   %   \fbox{
@@ -10,6 +18,7 @@
 
   \begin{center}
     
+    \resizebox{0.94\textwidth}{!}{
     \begin{tikzpicture}
       [
       every annotation/.style = {font = \small},
@@ -18,8 +27,8 @@
         decorate,
         decoration={
             coil,
-            amplitude=3.0, 
-            segment length=4.5,
+            amplitude=3.5, 
+            segment length=5.0,
           }
         }, 
       ]
@@ -63,7 +72,7 @@
                 \itemindent=0pt\labelsep=2pt
             }
             \item Static \textcolor{blue}{equilibrium} properties.
-            \item Need to sample the phase surface efficiently and ergodically.
+            \item Need to efficiently and ergodically sample the phase surface.
               \smallskip
                 \begin{list}{\zjball{blue}}{\
                 \topsep=0pt\itemsep=3pt\parsep=0pt
@@ -71,7 +80,7 @@
                 \itemindent=0pt\labelsep=2pt
                 }
                 \item Thermostatting
-                \item Coordinate transformation
+                \item Coordinate transformation and bead masses scaling
                 \end{list}
             \end{list}
         };
@@ -96,7 +105,7 @@
                 \itemindent=0pt\labelsep=2pt
             }
                 \item Approximate quantum \textcolor{red}{dynamics}
-                \item Standard PIMD with physical bead masses.
+                \item PIMD with \emph{physical} bead masses.
                 \item Thermostats should \emph{not} be used.
                 \item Must sample initial conditions.
             \end{list}
@@ -128,6 +137,9 @@
                 \sum_{i=1}^P {\partial V(x_i) \over \partial x_i}
                 }
             \end{equation*}
+            
+            \item Sample the whole configuration space available to the non-centroid modes
+              at each given position of centroid.
 
             \end{list}
 
@@ -138,19 +150,16 @@
                 \parskip=0pt\labelwidth=8pt\leftmargin=8pt
                 \itemindent=0pt\labelsep=2pt
             }
-              \item Standard PIMD with adiabatic separation of centroid and
+              \item PIMD with \emph{adiabatic decoupling} of centroid and
                 non-centroid motions.
-              \item No thermostat for the centroid mode.
+              \item \emph{No} thermostat for the centroid mode.
               \item Thermostatting for noncentroid mode as in PIMD.
               \item Must sample initial conditions.
            \end{list}
         };
     \end{tikzpicture}
+    }
   \end{center}
-  \footnotetext{
-    \textit{J. Chem. Phys.}, \textbf{130}, 194510(2009); \\
-    \textit{J. Chem. Phys.}, \textbf{129}, 074501(2009); \\
-  }
 
 \end{frame}
 %%% Local Variables:
