@@ -23,7 +23,10 @@
                            \over
                            \partial
                            \tilde{x_i} \tikzmark{RPPot}
-                           }
+                           } \cr
+      \Rightarrow \quad
+      \tilde{m}_1 \ddot{\tilde{x}}_1 &=
+      - {1\over\sqrt{P}} \sum_{j=1}^P {\partial V(x_j) \over \partial x_j}
   \end{align*}
 
   \begin{tikzpicture}
@@ -47,28 +50,29 @@
     % anchor=north,
     ] (rp_pot_note_1) {
       $
-      \sum_{j=1}^P {\partial V(x_j) \over \partial x_j} U^T_{ji}
+      =\sum_{j=1}^P {\partial V(x_j) \over \partial x_j} U^T_{ji}
       $
     };                     
     \draw[red,->, >=stealth, in=-90, out=180] (rp_pot_note_1.west) to ($
     (RPPot) + (-3pt, -4pt)
     $);
   \end{tikzpicture}
-
-  Note that $\tilde{x}_1 = 1/\sqrt{U} \sum_{j=1}^P x_j$ and $\Omega_1 = 0$, we have
-  \begin{equation*}
-      \tilde{m}_1 \ddot{\tilde{x}}_1 =
-      - {1\over\sqrt{P}} \sum_{j=1}^P {\partial V(x_j) \over \partial x_j}
-  \end{equation*}
+  % Note that $\tilde{x}_1 = 1/\sqrt{U} \sum_{j=1}^P x_j$ and $\Omega_1 = 0$, we have
+  % \begin{equation*}
+  %     \tilde{m}_1 \ddot{\tilde{x}}_1 =
+  %     - {1\over\sqrt{P}} \sum_{j=1}^P {\partial V(x_j) \over \partial x_j}
+  % \end{equation*}
 
   \begin{itemize}
   \item \textcolor{blue}{{PIMD}} --- scale the mass to bring all the frequencies
-    to the same value.
+    to the same value $\omega_p$.
     \begin{equation*}
       \tilde{m}_1 = m, \qquad \tilde{m}_i = 4\sin^2\left({(i-1)\pi\over
           P}\right) m \quad (2 \le i \le P)
     \end{equation*}
-  \item \textcolor{blue}{{(PA)CMD}} --- adiabatic parameter $\gamma > 1$, accelerating the dynamics of the non-centroid modes.
+  \item \textcolor{blue}{{(PA)CMD}} --- adiabatic parameter $\gamma > 1$,
+    shifting the noncentroid frequencies $\gamma\omega_P$ off the physical
+    spectra $\omega_{\text{max}}$.
     \begin{equation*}
       \tilde{m}_1 = m, \qquad \tilde{m}_i = 4\sin^2\left({(i-1)\pi\over
           P}\right) m / \gamma^2 \quad (2 \le i \le P)
