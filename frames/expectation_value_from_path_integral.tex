@@ -5,7 +5,7 @@
     \braket{\hat{A}} = \frac{1}{Z} \tr\left[\hat{A}e^{-\beta\hamil}\right]
     = \frac{1}{Z} \tr\left[\hat{A}(e^{-{\beta_P}\hamil})^P\right]
   \end{equation*}
-  if $\hat{A}$ is purely a function of $\hat{x}$, i.e.\ $\hat{A}(\hat{x})\ket{x}
+  if $\hat{A}$ is purely a function of \textcolor{olive}{position operator $\hat{x}$}, i.e.\ $\hat{A}(\hat{x})\ket{x}
   = a(x)\ket{x}$, then
   \footnote{
    ``Statistical Mechanics: Theory and Molecular Simulation'', Mark E. Tuckerman 
@@ -20,7 +20,7 @@
                        \frac{1}{Z}
                        \lim_{P\to\infty}
                        } 
-        \left( {1\over P}\sum_{i=1}^P a(x_i) \right)
+      \left( \mathcolor{blue}{{1\over P}\sum_{i=1}^P a(x_i)} \right)
         \exp\left\{
           \displaystyle
           -\beta_P
@@ -33,7 +33,11 @@
   \end{align*}
 
   \begin{itemize}
-  \item If $\hat{A}$ is a function of momentum opeator $\hat{p}$, then the
+    
+  \item $a(x_1,\ldots,x_P) = \mathcolor{black}{{1\over P}\sum_{i=1}^P a(x_i)}$ is
+    referred to as the \textsl{estimator} of $\braket{\hat{A}}$.
+        
+  \item If $\hat{A}$ is a function of \textcolor{orange}{momentum opeator $\hat{p}$}, then the
     \emph{cyclic-path} condition $x_{P+1} = x_1$ is released, in which case one should resort to
     the so-called \emph{open-path} path integral method.
   \item The thermodynamic functions, which may depend on both $\hat{x}$ and

@@ -1,0 +1,38 @@
+\begin{frame}
+  \frametitle{Energy Estimator}
+
+  \begin{itemize}
+    \item
+    The primitive energy estimator
+    \begin{align*}
+        \varepsilon_{\text{prim}}(x_1,\ldots,x_P) &=
+                                        \mathcolor{blue}{
+                                        {P\over2\beta} - \sum_{i=1}^P
+                                        {mP\over2\beta^2\hbar^2} (x_{i+1} - x_i)^2}
+                                        + {1\over P}\sum_{i=1}^P V(x_i) \cr
+                                        &= \mathcolor{blue}{{\cal K}_{\text{prim}}} +
+                                        {1\over P}\sum_{i=1}^P V(x_i)
+    \end{align*}
+    \item $\mathcolor{blue}{{\cal K}_{\text{prim}}}$ is the estimator for the
+        quantum kinetic energy, which scale linearly with the number of beads $P$.
+    \item The virial theorem:
+        \begin{equation*}
+        {P\over 2\beta} - \left\langle \sum_{i=1}^P {mP\over2\beta^2\hbar^2}
+            (x_{i+1} - x_i)^2 \right\rangle = \left\langle {1\over 2P} \sum_{i=1}^P
+            x_i {\partial V\over\partial x_i} \right\rangle
+        \end{equation*}
+
+    \item The virial energy estimator
+    \footnote{
+    ``Statistical Mechanics: Theory and Molecular Simulation'', Mark E. Tuckerman 
+    }
+        \begin{align*}
+        \varepsilon_{\text{vir}}(x_1,\ldots,x_P) &= {1\over P} \sum_{i=1}^P {1\over 2} x_i
+                                   {\partial V\over\partial x_i} + {1\over P} \sum_{i=1}^P V(x_i) \cr
+          &= \mathcolor{blue}{
+            {1\over2\beta} + {1\over P} \sum_{i=1}^P
+            {1\over 2} (x_i - x_c) {\partial V\over\partial x_i}}
+            + {1\over P} \sum_{i=1}^P V(x_i)
+        \end{align*}
+  \end{itemize}
+\end{frame}

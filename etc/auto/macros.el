@@ -26,6 +26,7 @@
     "EYSR"
     "DPSR"
     "tr"
-    "shortminus"))
+    "shortminus"
+    "mathcolor"))
  :latex)
 
