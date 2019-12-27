@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  27 DEC 2019 10:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  27 DEC 2019 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2186,7 +2186,16 @@ Overfull \vbox (12.51776pt too high) detected at line 110
 
 [16
 
-]) (./frames/frequencies_pimd.tex [17
+]) (./frames/pimd_acceleration.tex
+<figs/piglet.pdf, id=533, 238.7319pt x 103.58699pt>
+File: figs/piglet.pdf Graphic file (type pdf)
+<use figs/piglet.pdf>
+Package pdftex.def Info: figs/piglet.pdf  used on input line 29.
+(pdftex.def)             Requested size: 173.59755pt x 75.32861pt.
+ [17
+
+ <./figs/piglet.pdf>])
+(./frames/frequencies_pimd.tex [18
 
 ]) (./frames/pi_dyn.tex
 Underfull \hbox (badness 10000) in paragraph at lines 164--164
@@ -2202,14 +2211,14 @@ Overfull \hbox (11.47517pt too wide) in paragraph at lines 164--164
 Overfull \vbox (13.57909pt too high) detected at line 164
  []
 
-[18
+[19
 
-]) (./frames/pimd_cmd_rpmd.tex [19
+]) (./frames/pimd_cmd_rpmd.tex [20
 
-]) (./frames/cmd_rpmd_init.tex [20
+]) (./frames/cmd_rpmd_init.tex [21
 
 ])
-(./frames/thanks.tex [21
+(./frames/thanks.tex [22
 
 ])
 \tf@nav=\write6
@@ -2221,11 +2230,11 @@ Overfull \vbox (13.57909pt too high) detected at line 164
 \tf@snm=\write8
 \openout8 = `intro_iph.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  (./intro_iph.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `intro_iph.out' has not changed.
 (rerunfilecheck)             Checksum: C4BB66ADCF428181DFCEFB85AA60A185;121.
 
@@ -2235,10 +2244,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 55121 strings out of 492639
- 1312285 string characters out of 6129287
- 1569607 words of memory out of 5000000
- 58062 multiletter control sequences out of 15000+600000
+ 55133 strings out of 492639
+ 1312508 string characters out of 6129287
+ 1569643 words of memory out of 5000000
+ 58068 multiletter control sequences out of 15000+600000
  555510 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,21n,130p,1036b,2320s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2270,10 +2279,10 @@ xlive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/
 texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on intro_iph.pdf (21 pages, 1239908 bytes).
+Output written on intro_iph.pdf (22 pages, 1401398 bytes).
 PDF statistics:
- 769 PDF objects out of 1000 (max. 8388607)
- 678 compressed objects within 7 object streams
- 47 named destinations out of 1000 (max. 500000)
- 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 805 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
