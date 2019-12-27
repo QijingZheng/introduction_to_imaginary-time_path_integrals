@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  27 DEC 2019 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  27 DEC 2019 21:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2109,25 +2109,25 @@ logo.jpg>]) (./intro_iph.toc) [2
 
 ]
 (./frames/water_isotope_effect.tex
-<figs/competing_quantum_effect_water_dimer.pdf, id=94, 301.125pt x 117.0774pt>
-File: figs/competing_quantum_effect_water_dimer.pdf Graphic file (type pdf)
-<use figs/competing_quantum_effect_water_dimer.pdf>
-Package pdftex.def Info: figs/competing_quantum_effect_water_dimer.pdf  used on
- input line 10.
-(pdftex.def)             Requested size: 208.31918pt x 80.99785pt.
-<figs/water_isotope_effects.pdf, id=95, 327.624pt x 122.6181pt>
+<figs/water_isotope_effects.pdf, id=94, 327.624pt x 122.6181pt>
 File: figs/water_isotope_effects.pdf Graphic file (type pdf)
 <use figs/water_isotope_effects.pdf>
 Package pdftex.def Info: figs/water_isotope_effects.pdf  used on input line 10.
 
 (pdftex.def)             Requested size: 312.47348pt x 116.95801pt.
+<figs/competing_quantum_effect_water_dimer.pdf, id=95, 301.125pt x 117.0774pt>
+File: figs/competing_quantum_effect_water_dimer.pdf Graphic file (type pdf)
+<use figs/competing_quantum_effect_water_dimer.pdf>
+Package pdftex.def Info: figs/competing_quantum_effect_water_dimer.pdf  used on
+ input line 10.
+(pdftex.def)             Requested size: 208.31918pt x 80.99785pt.
  [3
 
- <./figs/competing_quantum_effect_water_dimer.pdf> <./figs/water_isotope_effect
-s.pdf
+ <./figs/water_isotope_effects.pdf> <./figs/competing_quantum_effect_water_dime
+r.pdf
 
-pdfTeX warning: pdflatex (file ./figs/water_isotope_effects.pdf): PDF inclusion
-: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file ./figs/competing_quantum_effect_water_dimer.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
 >]) (./frames/nuclear_quantum_effects.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <32> not available
@@ -2181,7 +2181,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
 ]) (./frames/convergence_pimd.tex
 PGFPlots: reading {data/E_error.csv}
 
-Overfull \vbox (12.51776pt too high) detected at line 110
+Overfull \vbox (7.51776pt too high) detected at line 110
  []
 
 [16
@@ -2279,7 +2279,7 @@ xlive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/
 texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on intro_iph.pdf (22 pages, 1401398 bytes).
+Output written on intro_iph.pdf (22 pages, 1401197 bytes).
 PDF statistics:
  805 PDF objects out of 1000 (max. 8388607)
  709 compressed objects within 8 object streams
