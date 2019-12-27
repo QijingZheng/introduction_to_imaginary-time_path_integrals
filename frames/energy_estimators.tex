@@ -1,9 +1,9 @@
 \begin{frame}
-  \frametitle{Energy Estimator}
+  \frametitle{Energy and Kinetic Energy Estimator}
 
   \begin{itemize}
     \item
-    The primitive energy estimator
+    The \emph{primitive} energy estimator $\varepsilon_{\text{prim}}(x_1,\ldots,x_P)$
     \begin{align*}
         \varepsilon_{\text{prim}}(x_1,\ldots,x_P) &=
                                         \mathcolor{blue}{
@@ -22,14 +22,16 @@
             x_i {\partial V\over\partial x_i} \right\rangle
         \end{equation*}
 
-    \item The virial energy estimator
+    \item The \emph{virial} energy  estimator
+      $\varepsilon_{\text{vir}}(x_1,\ldots,x_P)$ and virial kinetic energy
+      estimator $\mathcolor{orange}{{\cal K}_{\text{vir}}}$
     \footnote{
     ``Statistical Mechanics: Theory and Molecular Simulation'', Mark E. Tuckerman 
     }
         \begin{align*}
-        \varepsilon_{\text{vir}}(x_1,\ldots,x_P) &= {1\over P} \sum_{i=1}^P {1\over 2} x_i
-                                   {\partial V\over\partial x_i} + {1\over P} \sum_{i=1}^P V(x_i) \cr
-          &= \mathcolor{blue}{
+        \varepsilon_{\text{vir}}(x_1,\ldots,x_P) &= \mathcolor{orange}{{1\over P} \sum_{i=1}^P {1\over 2} x_i
+                                   {\partial V\over\partial x_i} } + {1\over P} \sum_{i=1}^P V(x_i) \cr
+          &= \mathcolor{orange}{
             {1\over2\beta} + {1\over P} \sum_{i=1}^P
             {1\over 2} (x_i - x_c) {\partial V\over\partial x_i}}
             + {1\over P} \sum_{i=1}^P V(x_i)

@@ -17,6 +17,7 @@
     "etc/beamer_customization"
     "etc/macros"
     "frames/title"
+    "frames/water_isotope_effect"
     "frames/nuclear_quantum_effects"
     "frames/how_to_model"
     "frames/path_integral_isomorphism"
