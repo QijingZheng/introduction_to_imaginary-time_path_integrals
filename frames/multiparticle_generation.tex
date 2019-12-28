@@ -39,16 +39,16 @@
   The PIMD Hamiltonian is
   \begin{equation*}
     H_P(\{\mathbf{x}\}, \{\mathbf{p}\}) =
-    \mathcolor{olive}{
-        \overbrace{
+    \overbrace{
+        \mathcolor{olive}{
             \sum_{\tikzmark{particle_ind}I=1}^N \sum_{\tikzmark{bead_ind}i=1}^P
             \left[
             \frac{(\mathbf{p}^i_I)^2}{2\tilde{m}_I^i}
             +
             \frac{1}{2} m_I \tikzmark{omegaP}\omega_P^2 (\mathbf{x}^{i+1}_I - \mathbf{x}^i_I)^2
             \right]
-        }^{\text{Free Ring-Polymer Hamiltonian } H_0}
-    }
+        }
+    }^{\text{Free Ring-Polymer Hamiltonian } H_0}
       +
       \sum_{i=1}^P 
       \hat{V}(\mathbf{x}_1^i,\ldots,\mathbf{x}_N^i)
