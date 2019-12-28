@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  27 DEC 2019 21:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.7)  28 DEC 2019 19:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2131,21 +2131,21 @@ pdfTeX warning: pdflatex (file ./figs/competing_quantum_effect_water_dimer.pdf)
 >]) (./frames/nuclear_quantum_effects.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <32> not available
-(Font)              size <29.86> substituted on input line 67.
+(Font)              size <29.86> substituted on input line 75.
 
-[4
-
-]) (./frames/how_to_model.tex
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 82.
+(amsmath)                 on input line 75.
 
-[5
+[4
+
+]) (./frames/how_to_model.tex [5
 
 ]) (./intro_iph.toc) [6
 
-] (./frames/path_integral_isomorphism.tex [7
+]
+(./frames/path_integral_isomorphism.tex [7
 
 ] [8
 
@@ -2156,27 +2156,36 @@ Package amsmath Warning: Foreign command \over;
 ])
 (./frames/energy_estimators.tex [10
 
-]) (./frames/introduction_momenta.tex
-[11
+])
+(./frames/energy_estimators_comparison.tex
+<figs/energy_estimators_comp_color.pdf, id=359, 357.0138pt x 220.42351pt>
+File: figs/energy_estimators_comp_color.pdf Graphic file (type pdf)
+<use figs/energy_estimators_comp_color.pdf>
+Package pdftex.def Info: figs/energy_estimators_comp_color.pdf  used on input l
+ine 9.
+(pdftex.def)             Requested size: 312.47348pt x 192.93062pt.
+ [11
 
-]) (./frames/multiparticle_generation.tex [12
+ <./figs/energy_estimators_comp_color.pdf>]) (./frames/introduction_momenta.tex
+ [12
 
 ])
-(./frames/terms_and_properties.tex [13
+(./frames/multiparticle_generation.tex [13
 
-])
-(./frames/ring_polymer_normal_modes.tex
+]) (./frames/terms_and_properties.tex [14
+
+]) (./frames/ring_polymer_normal_modes.tex
 Overfull \vbox (8.40804pt too high) detected at line 202
  []
 
-[14
+[15
 
 ]) (./frames/initialization_positions_and_momenta.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
 (Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 68.
 
-[15
+[16
 
 ]) (./frames/convergence_pimd.tex
 PGFPlots: reading {data/E_error.csv}
@@ -2184,18 +2193,18 @@ PGFPlots: reading {data/E_error.csv}
 Overfull \vbox (7.51776pt too high) detected at line 110
  []
 
-[16
+[17
 
 ]) (./frames/pimd_acceleration.tex
-<figs/piglet.pdf, id=533, 238.7319pt x 103.58699pt>
+<figs/piglet.pdf, id=567, 238.7319pt x 103.58699pt>
 File: figs/piglet.pdf Graphic file (type pdf)
 <use figs/piglet.pdf>
 Package pdftex.def Info: figs/piglet.pdf  used on input line 29.
 (pdftex.def)             Requested size: 173.59755pt x 75.32861pt.
- [17
+ [18
 
  <./figs/piglet.pdf>])
-(./frames/frequencies_pimd.tex [18
+(./frames/frequencies_pimd.tex [19
 
 ]) (./frames/pi_dyn.tex
 Underfull \hbox (badness 10000) in paragraph at lines 164--164
@@ -2211,14 +2220,14 @@ Overfull \hbox (11.47517pt too wide) in paragraph at lines 164--164
 Overfull \vbox (13.57909pt too high) detected at line 164
  []
 
-[19
+[20
 
-]) (./frames/pimd_cmd_rpmd.tex [20
+]) (./frames/pimd_cmd_rpmd.tex [21
 
-]) (./frames/cmd_rpmd_init.tex [21
+]) (./frames/cmd_rpmd_init.tex [22
 
 ])
-(./frames/thanks.tex [22
+(./frames/thanks.tex [23
 
 ])
 \tf@nav=\write6
@@ -2230,11 +2239,11 @@ Overfull \vbox (13.57909pt too high) detected at line 164
 \tf@snm=\write8
 \openout8 = `intro_iph.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  (./intro_iph.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `intro_iph.out' has not changed.
 (rerunfilecheck)             Checksum: C4BB66ADCF428181DFCEFB85AA60A185;121.
 
@@ -2244,10 +2253,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 55133 strings out of 492639
- 1312508 string characters out of 6129287
- 1569643 words of memory out of 5000000
- 58068 multiletter control sequences out of 15000+600000
+ 55156 strings out of 492639
+ 1313080 string characters out of 6129287
+ 1571158 words of memory out of 5000000
+ 58085 multiletter control sequences out of 15000+600000
  555510 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,21n,130p,1036b,2320s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2279,10 +2288,10 @@ xlive/2018/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/local/
 texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on intro_iph.pdf (22 pages, 1401197 bytes).
+Output written on intro_iph.pdf (23 pages, 1538209 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
- 709 compressed objects within 8 object streams
- 49 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 839 PDF objects out of 1000 (max. 8388607)
+ 739 compressed objects within 8 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 

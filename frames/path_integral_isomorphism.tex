@@ -26,8 +26,13 @@
   \begin{equation*}
     \label{eq:density_mat_and_propagator}
     \braket{ x'| e^{-i\hamil t/\hbar} | x}
-    \qquad\Rightarrow\qquad
-    \braket{ x'| e^{-\beta\hamil} | x};\quad t = -i\beta\hbar
+    % \qquad\Rightarrow\qquad
+    \qquad
+    \tikz \draw [->=shealth, blue, line width=0.5pt] (0, 0) -- node[above,
+    midway]{$t = i\beta\hbar$} (1.5, 0.0);
+    \qquad
+    \braket{ x'| e^{-\beta\hamil} | x}
+    % ;\quad t = -i\beta\hbar
   \end{equation*}
   Hence the name \emph{imaginary-time path integral}. By using the Trotter splitting\footnote[frame]{
     There are higher-order splitting techniques.
