@@ -4,12 +4,12 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("beamer" "8pt" "dvipsnames")))
    (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -18,6 +18,7 @@
     "etc/macros"
     "frames/title"
     "frames/water_isotope_effect"
+    "frames/exp_water_isotope_effect"
     "frames/nuclear_quantum_effects"
     "frames/how_to_model"
     "frames/path_integral_isomorphism"
